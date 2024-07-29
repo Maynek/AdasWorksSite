@@ -1,5 +1,6 @@
 //--------------------------------
 // © Ada Maynek 2024
+// This software is released under the MIT License.
 //--------------------------------
 const BASE_INDEX_SITE_PATH:string  = '/[novelId]/';
 const BASE_CHAPTER_SITE_PATH:string  = '/[novelId]/chapter/[chapterId]';
