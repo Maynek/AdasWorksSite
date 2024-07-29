@@ -1,5 +1,6 @@
 //--------------------------------
 // © Ada Maynek 2024
+// This software is released under the MIT License.
 //--------------------------------
 import Link from 'next/link'
 import Common from "@/components/layouts/common"

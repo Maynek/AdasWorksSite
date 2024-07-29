@@ -1,5 +1,6 @@
 //--------------------------------
 // © Ada Maynek 2024
+// This software is released under the MIT License.
 //--------------------------------
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";

@@ -1,5 +1,6 @@
 //--------------------------------
 // © Ada Maynek 2024
+// This software is released under the MIT License.
 //--------------------------------
 'use client'
 import Link from 'next/link'

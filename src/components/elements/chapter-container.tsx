@@ -1,5 +1,6 @@
 //--------------------------------
 // © Ada Maynek 2024
+// This software is released under the MIT License.
 //--------------------------------
 'use client'
 import { useState, useRef }  from "react";

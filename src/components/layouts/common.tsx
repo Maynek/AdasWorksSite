@@ -1,5 +1,6 @@
 //--------------------------------
 // © Ada Maynek 2024
+// This software is released under the MIT License.
 //--------------------------------
 import Header from "@/components/layouts/header"
 import Footer from "@/components/layouts/footer"
