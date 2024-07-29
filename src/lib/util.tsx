@@ -9,7 +9,7 @@ const BASE_NOTE_SITE_PATH:string  = '/[novelId]/note/[noteId]';
 
 let dataUrl: string = 'https://adasworks.pages.dev/';
 if (process.env.NODE_ENV === 'development') {
-  dataUrl = '/testdata/';
+  dataUrl = '/contents/';
 }
 const BASE_INDEX_DATA_PATH: string   = dataUrl + '[novelId]/out/site/chapters/_index.json';
 const BASE_CHAPTER_DATA_PATH: string = dataUrl + '[novelId]/out/site/chapters/[chapterId].json';
