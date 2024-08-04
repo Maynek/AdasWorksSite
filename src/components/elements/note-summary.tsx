@@ -9,8 +9,6 @@ import { getNoteDataPath } from '@/lib/util'
 import Loading from '@/components/elements/loading'
 import LoadError from '@/components/elements/load-error'
 
-const fetcher = (...args:Parameters<typeof fetch>) => fetch(...args).then(res => res.json())
-
 export default function NotesvelSummary({
   novelId,
   noteId,
@@ -20,7 +18,7 @@ export default function NotesvelSummary({
 }) {
   const shouldFetch = novelId && noteId;
   const path = getNoteDataPath(novelId, noteId);
-  const {data, error, isLoading} = useSWR(shouldFetch ? path : null, fetcher);
+  const {data, error, isLoading} = useSWR(shouldFetch ? path : null);
 
   if (isLoading) {
     return ( <Loading /> );

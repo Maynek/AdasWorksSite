@@ -9,15 +9,13 @@ import { getChapterSitePath, getIndexDataPath } from '@/lib/util'
 import Loading from '@/components/elements/loading'
 import LoadError from '@/components/elements/load-error'
 
-const fetcher = (...args:Parameters<typeof fetch>) => fetch(...args).then(res => res.json())
-
 export default function ChapterIndex({
   novelId
 } : {
   novelId: string
 }) {
   const path = getIndexDataPath(novelId);
-  const {data, error, isLoading} = useSWR(path, fetcher);
+  const {data, error, isLoading} = useSWR(path);
   let id:string;
 
   if (isLoading) {

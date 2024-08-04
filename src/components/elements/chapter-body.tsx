@@ -10,8 +10,6 @@ import Loading from '@/components/elements/loading'
 import LoadError from '@/components/elements/load-error'
 import NotesvelPagination from '@/components/elements/chapter-pagination'
 
-const fetcher = (...args:Parameters<typeof fetch>) => fetch(...args).then(res => res.json())
-
 export default function ChapterBody({
   novelId,
   chapterId,
@@ -49,7 +47,7 @@ export default function ChapterBody({
 
   const shouldFetch = novelId && chapterId;
   const path = getChapterDataPath(novelId, chapterId);
-  const {data, error, isLoading} = useSWR(shouldFetch ? path : null, fetcher);
+  const {data, error, isLoading} = useSWR(shouldFetch ? path : null);
 
   if (isLoading) {
     return ( <Loading /> );
