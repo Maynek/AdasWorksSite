@@ -5,18 +5,18 @@
 'use client'
 import useSWR from 'swr';
 import parse, {DOMNode, domToReact} from 'html-react-parser';
-import { getIndexSitePath, getChapterSitePath, getChapterDataPath } from '@/lib/util'
+import { getIndexSitePath, getEpisodeSitePath, getEpisodeDataPath } from '@/lib/util'
 import Loading from '@/components/elements/loading'
 import LoadError from '@/components/elements/load-error'
-import NotesvelPagination from '@/components/elements/chapter-pagination'
+import EpisodePagination from '@/components/elements/episode-pagination'
 
-export default function ChapterBody({
+export default function EpisodeBody({
   novelId,
-  chapterId,
+  episodeId,
   onClickNote
 } : {
   novelId: string
-  chapterId: string
+  episodeId: string
   onClickNote?:(noteId:string) => void
 }) {
 
@@ -45,8 +45,8 @@ export default function ChapterBody({
     }
   }
 
-  const shouldFetch = novelId && chapterId;
-  const path = getChapterDataPath(novelId, chapterId);
+  const shouldFetch = novelId && episodeId;
+  const path = getEpisodeDataPath(novelId, episodeId);
   const {data, error, isLoading} = useSWR(shouldFetch ? path : null);
 
   if (isLoading) {
@@ -55,13 +55,13 @@ export default function ChapterBody({
     return ( <LoadError /> );
   } else {
     const indexPath = getIndexSitePath(novelId);
-    const prevPath = data.prevId ? getChapterSitePath(novelId, data.prevId) : null;
-    const nextPath = data.nextId ? getChapterSitePath(novelId, data.nextId) : null;
+    const prevPath = data.prevId ? getEpisodeSitePath(novelId, data.prevId) : null;
+    const nextPath = data.nextId ? getEpisodeSitePath(novelId, data.nextId) : null;
 
     return (
       <div className="flex flex-col h-full">
         <div className="my-6">
-          <NotesvelPagination indexPath={indexPath} prevPath={prevPath} nextPath={nextPath} />
+          <EpisodePagination indexPath={indexPath} prevPath={prevPath} nextPath={nextPath} />
         </div>
         <div className="text-center mb-6">
           <h1 className="font-bold sm:text-2xl ">{data.title}</h1>
@@ -70,7 +70,7 @@ export default function ChapterBody({
           {parse(data.body, {replace})}
         </div>
         <div className="my-6">
-          <NotesvelPagination indexPath={indexPath} prevPath={prevPath} nextPath={nextPath} />
+          <EpisodePagination indexPath={indexPath} prevPath={prevPath} nextPath={nextPath} />
         </div>
       </div>
     );

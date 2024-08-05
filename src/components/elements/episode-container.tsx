@@ -6,15 +6,15 @@
 import { useState, useRef }  from "react";
 import Link from 'next/link'
 import { getNoteSitePath } from '@/lib/util'
-import ChapterBody from '@/components/elements/chapter-body'
+import EpisodeBody from '@/components/elements/episode-body'
 import NoteSummary from '@/components/elements/note-summary'
 
-export default function ChapterContainer({
+export default function EpisodeContainer({
   novelId,
-  chapterId,
+  episodeId,
 }:{
   novelId: string
-  chapterId: string
+  episodeId: string
 }) {
   const dialogRef = useRef<HTMLDialogElement | null>(null)
   const [noteIdState, setNoteIdState] = useState('')
@@ -33,7 +33,7 @@ export default function ChapterContainer({
 
   return (
     <>
-      <ChapterBody novelId={novelId} chapterId={chapterId} onClickNote={openNote}/>
+      <EpisodeBody novelId={novelId} episodeId={episodeId} onClickNote={openNote}/>
       <dialog
         ref={dialogRef}
         className={`

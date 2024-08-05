@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 //--------------------------------
 import Common from "@/components/layouts/common"
-import ChapterIndex from '@/components/elements/chapter-index'
+import EpisodeIndex from '@/components/elements/episode-index'
 import {SWRProvider} from '@/components/elements/swr-provider'
 
 export default function IndexPage({
@@ -16,7 +16,7 @@ export default function IndexPage({
   return (
     <Common>
       <SWRProvider>
-        <ChapterIndex novelId={params.novelId}/>
+        <EpisodeIndex novelId={params.novelId}/>
       </SWRProvider>
     </Common>
   );

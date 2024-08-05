@@ -4,22 +4,22 @@
 //--------------------------------
 import Common from "@/components/layouts/common"
 import {SWRProvider} from '@/components/elements/swr-provider'
-import ChapterContainer from '@/components/elements/chapter-container'
+import EpisodeContainer from '@/components/elements/episode-container'
 
 export default function ChapterPage({
   params,
 }: Readonly<{
   params: {
     novelId: string
-    chapterId: string  
+    episodeId: string  
   }
 }>) {
   return (
     <Common>
       <SWRProvider>
-        <ChapterContainer
+        <EpisodeContainer
           novelId={params.novelId}
-          chapterId={params.chapterId}
+          episodeId={params.episodeId}
         />
       </SWRProvider>
     </Common>

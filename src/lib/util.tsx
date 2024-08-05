@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 //--------------------------------
 const BASE_INDEX_SITE_PATH:string  = '/[novelId]/';
-const BASE_CHAPTER_SITE_PATH:string  = '/[novelId]/chapter/[chapterId]';
+const BASE_EPISODE_SITE_PATH:string  = '/[novelId]/[episodeId]';
 const BASE_NOTE_SITE_PATH:string  = '/[novelId]/note/[noteId]';
 
 
@@ -11,9 +11,9 @@ let dataUrl: string = 'https://adasworks.pages.dev/';
 if (process.env.NODE_ENV === 'development') {
   dataUrl = '/contents/';
 }
-const BASE_INDEX_DATA_PATH: string   = dataUrl + '[novelId]/out/site/chapters/_index.json';
-const BASE_CHAPTER_DATA_PATH: string = dataUrl + '[novelId]/out/site/chapters/[chapterId].json';
-const BASE_NOTE_DATA_PATH: string    = dataUrl + '[novelId]/out/site/notes/[noteId].json';
+const BASE_INDEX_DATA_PATH: string   = dataUrl + '[novelId]/out/site/index.json';
+const BASE_EPISODE_DATA_PATH: string = dataUrl + '[novelId]/out/site/[episodeId].json';
+const BASE_NOTE_DATA_PATH: string    = dataUrl + '[novelId]/out/site/note/[noteId].json';
 
 export const getIndexSitePath = (
   novelId:string,
@@ -21,11 +21,11 @@ export const getIndexSitePath = (
   return BASE_INDEX_SITE_PATH.replace('[novelId]', novelId);
 };
 
-export const getChapterSitePath = (
+export const getEpisodeSitePath = (
   novelId:string,
-  chapterId:string
+  episodeId:string
 ) => {
-  return BASE_CHAPTER_SITE_PATH.replace('[novelId]', novelId).replace('[chapterId]', chapterId);
+  return BASE_EPISODE_SITE_PATH.replace('[novelId]', novelId).replace('[episodeId]', episodeId);
 };
 
 export const getNoteSitePath = (
@@ -41,11 +41,11 @@ export const getIndexDataPath = (
   return BASE_INDEX_DATA_PATH.replace('[novelId]', novelId);
 };
 
-export const getChapterDataPath = (
+export const getEpisodeDataPath = (
   novelId:string,
-  chapterId:string
+  episodeId:string
 ) => {
-  return BASE_CHAPTER_DATA_PATH.replace('[novelId]', novelId).replace('[chapterId]', chapterId);
+  return BASE_EPISODE_DATA_PATH.replace('[novelId]', novelId).replace('[episodeId]', episodeId);
 };
 
 export const getNoteDataPath = (

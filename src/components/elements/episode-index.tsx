@@ -5,11 +5,11 @@
 'use client'
 import Link from 'next/link'
 import useSWR from 'swr';
-import { getChapterSitePath, getIndexDataPath } from '@/lib/util'
+import { getEpisodeSitePath as getEpisodeSitePath, getIndexDataPath } from '@/lib/util'
 import Loading from '@/components/elements/loading'
 import LoadError from '@/components/elements/load-error'
 
-export default function ChapterIndex({
+export default function EpisodeIndex({
   novelId
 } : {
   novelId: string
@@ -30,9 +30,9 @@ export default function ChapterIndex({
           <h2 className="font-bold sm:text-xl">{data.subtitle}</h2>
         </div>
         <ul >
-          {data.chapters.map(({id, title}:{id:string, title:string}) => (
+          {data.episodes.map(({id, title}:{id:string, title:string}) => (
             <li key={id} className="my-2 text-sky-600 no-underline hover:text-red-600 hover:underline">
-              <Link href={getChapterSitePath(novelId, id)}>{title}</Link>
+              <Link href={getEpisodeSitePath(novelId, id)}>{title}</Link>
             </li>
           ))}
           <li className="my-2 text-sky-600 no-underline hover:text-red-600 hover:underline">

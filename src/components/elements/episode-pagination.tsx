@@ -4,7 +4,7 @@
 //--------------------------------
 import Link from 'next/link'
 
-export default function ChapterPagination({
+export default function EpisodePagination({
   indexPath,
   prevPath,
   nextPath,
