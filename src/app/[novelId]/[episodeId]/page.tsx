@@ -6,7 +6,7 @@ import Common from "@/components/layouts/common"
 import {SWRProvider} from '@/components/elements/swr-provider'
 import EpisodeContainer from '@/components/elements/episode-container'
 
-export default function ChapterPage({
+export default function EpisodePage({
   params,
 }: Readonly<{
   params: {
