@@ -9,6 +9,18 @@ import { getEpisodeSitePath as getEpisodeSitePath, getIndexDataPath } from '@/li
 import Loading from '@/components/elements/loading'
 import LoadError from '@/components/elements/load-error'
 
+type episode = {
+  id:string;
+  title: string;
+}
+
+type chapter = {
+  id: string;
+  title: string;
+  episodes: Array<episode>;
+}
+
+
 export default function EpisodeIndex({
   novelId
 } : {
@@ -25,14 +37,21 @@ export default function EpisodeIndex({
   } else {
     return (
       <>
-        <div className="my-4 text-center">
+        <div className="mt-4 mb-8 text-center">
           <h1 className="font-bold mb-1 sm:text-2xl">{data.maintitle}</h1>
           <h2 className="font-bold sm:text-xl">{data.subtitle}</h2>
         </div>
-        <ul >
-          {data.episodes.map(({id, title}:{id:string, title:string}) => (
-            <li key={id} className="my-2 text-sky-600 no-underline hover:text-red-600 hover:underline">
-              <Link href={getEpisodeSitePath(novelId, id)}>{title}</Link>
+        <ul>
+          {data.chapters.map(({id, title, episodes}:chapter) => (
+            <li key={id} className="my-4">
+              <span className="font-bold sm:text-lg">{title}</span>
+              <ul className="my-2 font-normal">
+                {episodes?.map(({id,title}:episode) => (
+                  <li key={id} className="text-sky-600 no-underline hover:text-red-600 hover:underline">
+                    <Link href={getEpisodeSitePath(novelId, id)}>{title}</Link>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
           <li className="my-2 text-sky-600 no-underline hover:text-red-600 hover:underline">
